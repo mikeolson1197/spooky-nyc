@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+   
+    <!-- Sizing and Other -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>👻 boo!</title>
+
+    <style>
+      h1.ghost {
+        position:fixed;
+      }
+    </style>
+    
+  </head>
+  
+
+  <!-- STYLING TODO -->
+  <body style="background-color: black; font-family: Questrial;">
+  
+  <div class="container">
+
+    <!-- 👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻👻 -->
+    <!-- First Page -->
+ 
+    <div id="first-page" class="align-right" style="display: none;">
+        
+
+
+      
+      <!-- Ghosts -->
+      <div id="ghosts">
+        <h1 class="ghost" style="font-size: 10rem">👻</h1>
+        <h1 class="ghost" style="font-size: 10rem">👻</h1>
+        <h1 class="ghost" style="font-size: 10rem">👻</h1>
+        <h1 class="ghost" style="font-size: 7rem">👻</h1>
+        <h1 class="ghost" style="font-size: 7rem">👻</h1>
+        <h1 class="ghost" style="font-size: 7rem">👻</h1>
+        <h1 class="ghost" style="font-size: 7rem">👻</h1>
+        <h1 class="ghost" style="font-size: 6rem">👻</h1>
+        <h1 class="ghost" style="font-size: 6rem">👻</h1>
+        <h1 class="ghost" style="font-size: 5rem">👻</h1>
+        <h1 class="ghost" style="font-size: 5rem">👻</h1>
+        <h1 class="ghost" style="font-size: 5rem">👻</h1>
+        <h1 class="ghost" style="font-size: 5rem">👻</h1>
+        <h1 class="ghost" style="font-size: 4rem">👻</h1>
+        <h1 class="ghost" style="font-size: 4rem">👻</h1>
+        <h1 class="ghost" style="font-size: 4rem">👻</h1>
+        <h1 class="ghost" style="font-size: 4rem">👻</h1>
+        <h1 class="ghost" style="font-size: 4rem">👻</h1>
+        <h1 class="ghost" style="font-size: 4rem">👻</h1>
+        <h1 class="ghost" style="font-size: 3rem">👻</h1>
+        <h1 class="ghost" style="font-size: 3rem">👻</h1>
+        <h1 class="ghost" style="font-size: 3rem">👻</h1>
+        <h1 class="ghost" style="font-size: 3rem">👻</h1>
+        <h1 class="ghost" style="font-size: 3rem">👻</h1>
+    
+        
+      </div>
+
+      <!-- Alert Message -->
+      <div>
+        <h1 class="display-1 text-center text-white" style="padding-top: 40vh;">🚨 Help 🚨</h1>
+        <h1 class="display-4 text-center text-white" >Ghosts stole your invite, tap on all of them to get it back 🥳</h1>
+      </div>
+        
+    </div>
+
+    <!-- 🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃🎃 -->
+    <!-- Second Page -->
+
+    <div id="next-page" style="display: none;" >
+
+      <!-- Invite -->
+      <h1 class="display-3 text-center text-white" style="padding-top: 20vh;">Whoosh, close call. Ok, here's what you need to know 🤪</h1>
+      <br>
+      <h6 class=" text-center text-white pb-3" >🎤 DJ goes on at Sat, Oct 29th - 9:00 PM. Don't be late, his first 30 minutes are wild.</h6>
+      <h6 class=" text-center text-white pb-3" >🎃 it's halloween, so dress up.</h6>
+      <h6 class=" text-center text-white" >🏡 it's in East Village (we'll text you the address.) </h6>
+      
+
+    </div>
+
+
+  </div>
+
+
+
+    
+  <script>
+    $(document).ready(function(){
+      
+      // Lazy Load first page
+      $("#first-page").fadeIn(2000);
+
+      // Get ghosts moving
+       animateGhosts();
+
+      // Make ghosts move
+      function animateGhosts(){
+
+
+        for (let index = 0; index < 40; index++) {
+          $('#ghosts').children().each(function () {
+              var newq = makeNewPosition();
+              var oldq = $(this).offset();
+              var speed = calcSpeed([oldq.top, oldq.left], newq);
+              $(this).animate({ top: newq[0], left: newq[1] }, speed);
+          });
+        }
+               
+    
+      };
+
+      function makeNewPosition(){
+          // Get viewport dimensions (remove the dimension of the div)
+          var h = $(window).height() - 50;
+          var w = $(window).width() - 50;
+          var nh = Math.floor(Math.random() * h);
+          var nw = Math.floor(Math.random() * w);
+          return [nh,nw];    
+      }
+
+      function calcSpeed(prev, next) {
+          var x = Math.abs(prev[1] - next[1]);
+          var y = Math.abs(prev[0] - next[0]);
+          var greatest = x > y ? x : y;
+          var speedModifier = .1;
+          var speed = Math.ceil(greatest/speedModifier);
+          return speed;
+      }
+
+
+      // Delete and check how many ghosts are left
+      $(".ghost").on("click", function() {
+        
+        if($(this).parent().children().length == 24) {
+          // Play music
+          console.log("play music")
+          var audio = new Audio('temp.mp3');
+          audio.play();
+        }
+
+        if($(this).parent().children().length == 1) {
+          // Show invite 
+          showInvite()
+        }
+
+        $(this).remove()
+
+      });
+
+      // Lazy load out first page, lazy load in second page.
+      function showInvite() {
+        $("#first-page").fadeOut(420);
+        $("#next-page").fadeIn(3200);
+      }
+
+
+    });
+  
+
+  </script>
+  </body>
+</html>
